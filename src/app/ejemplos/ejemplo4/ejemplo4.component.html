@@ -1,0 +1,28 @@
+<p>ejemplo4 works!</p>
+<p>programa con limites</p>
+<p> min: z=2.5x1+2x2</p>
+<p>6x1+3x2>=200</p>
+<p>3x1+5x2>=180</p>
+<p>x1>=0</p>
+<p>x2>=0</p>
+<label for="simulaciones">simulations:</label>
+
+<input type="number" id="simulaciones" name="simulaciones" [(ngModel)]="simulaciones"><br><br>
+<button (click)="calcular()">calcular</button>
+
+<table mat-table *ngIf="tablaVisible" >
+  <thead>
+    <tr>
+      <th>x1</th>
+      <th>x2</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fila of tabla">
+      <td>{{ fila.x1 }}</td>
+      <td>{{ fila.x2 }}</td>
+      <td>{{ fila.z }}</td>
+    </tr>
+  </tbody>
+</table>

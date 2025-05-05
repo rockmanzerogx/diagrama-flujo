@@ -1,0 +1,42 @@
+<div>
+    Ejemplo 1.- Construir un modelo de simulacion para un sistema de deposito a plazo fijo.
+    Simular el problema de depósito a plazo fijo para un capital de 1000, en cuantos años se duplicaría el capital
+  </div>
+  
+  <label for="Tiempo">Tiempo (t):</label>
+  <input type="number" id="Tiempo" name="Tiempo" [(ngModel)]="t"><br><br>
+  
+  <label for="capital">Capital (k):</label>
+  <input type="number" id="capital" name="capital" [(ngModel)]="k"><br><br>
+  
+  <label for="tasa">Tasa de interés (i):</label>
+  <input type="number" id="tasa" name="tasa" [(ngModel)]="i"><br><br>
+  
+  <label for="objetivo">objetivo:</label>
+  <input type="number" id="objetivo" name="objetivo" [(ngModel)]="objetivo"><br><br>
+  
+  <button (click)="calcular()">Calcular</button>
+  <button (click)="clean()">Limpiar</button>
+  
+  <table mat-table *ngIf="tablaVisible" >
+  <thead>
+    <tr>
+      <th>CT</th>
+      <th>I</th>
+      <th>k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fila of tabla">
+      <td>{{ fila.CT }}</td>
+      <td>{{ fila.I }}</td>
+      <td>{{ fila.k }}</td>
+    </tr>
+  </tbody>
+  </table>
+  <div *ngIf="tablaVisible">
+    <p>capital total ganado: {{capitalTotalGanado}}</p>
+    <p>Tiempo necesario para llegar al objetivo: {{tiemponecesario}}</p>
+  
+  </div>
+  <p *ngIf="errorMessage!=''">{{errorMessage}}</p>

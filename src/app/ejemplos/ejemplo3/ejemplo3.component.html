@@ -1,0 +1,47 @@
+<p>ejemplo3</p>
+<p> Juego de Dados:Para el juego del lanzamiento de dados realizar 30 simulaciones de 100 juegos y determinar: la ganancia promedio neta del dueño, el número de veces que gana la casa, la probabilidad de ganar de la casa en cada simulación. ¿Vale la pena que el dueño implemente el juego?</p>
+
+<label for="maxJuegos">Numero maximo de simulaciones:</label>
+<input type="number" id="maxJuegos" name="maxJuegos" [(ngModel)]="maxJuegos"><br><br>
+
+<label for="maxJuegos">Numero maximo de juegos:</label>
+<input type="number" id="maxJuegos" name="maxJuegos" [(ngModel)]="maxJuegos"><br><br>
+
+<label for="precioJuego">Precio unitario ppor juego:</label>
+<input type="number" id="precioJuego" name="precioJuego" [(ngModel)]="precioJuego"><br><br>
+
+<label for="costoVictoria">Costo por Victoria:</label>
+<input type="number" id="costoVictoria" name="costoVictoria" [(ngModel)]="costoVictoria"><br><br>
+
+<button (click)="calcular()">Calcular</button>
+<button (click)="clean()">clean</button>
+
+<table mat-table *ngIf="tablaVisible">
+  <thead>
+    <tr>
+      <th>NJ</th>
+      <th>rdado1</th>
+      <th>dado1</th>
+      <th>rdado2</th>
+      <th>dado2</th>
+      <th>sdado</th>
+      <th>gneta</th>
+      <th>njgc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of tabla">
+      <td>{{ row.cantidadJuegos }}</td>
+      <td>{{ row.rdado1 }}</td>
+      <td>{{ row.dado1}}</td>
+      <td>{{ row.rdado2}}</td>
+      <td>{{ row.dado2}}</td>
+      <td>{{ row.sdado}}</td>
+      <td>{{ row.gneta}}</td>
+      <td>{{ row.njgc}}</td>
+      
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
+

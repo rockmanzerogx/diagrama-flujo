@@ -1,0 +1,39 @@
+<p>Llegada de clientes a una tienda con distribucion uniforme</p>
+
+<label for="maxSimulaciones">Numero maximo de simulaciones:</label>
+<input type="number" id="maxSimulaciones" name="maxSimulaciones" [(ngModel)]="maxSimulaciones"><br /><br />
+
+<label for="maxDias">Numero maximo de dias:</label>
+<input type="number" id="maxDias" name="maxDias" [(ngModel)]="maxDias"><br /><br />
+
+<label for="maxHoras">Numero maximo de horas:</label>
+<input type="number" id="maxHoras" name="maxHoras" [(ngModel)]="maxHoras"><br /><br />
+<label for="precioVentaUnitario">Precio de venta Unitario:</label>
+<input
+  type="number"
+  id="precioVentaUnitario"
+  name="precioVentaUnitario"
+  [(ngModel)]="precioVentaUnitario"
+/><br /><br />
+<label for="costoFijoDiario">costo Fijo Diario:</label>
+<input type="number" id="costoFijoDiario" name="costoFijoDiario" [(ngModel)]="costoFijoDiario" /><br /><br />
+<label for="costoUnitarioArticulo">Unit cost per item:</label>
+<input type="number" id="costoUnitarioArticulo" name="costoUnitarioArticulo" [(ngModel)]="costoUnitarioArticulo" /><br /><br />
+
+<button (click)="calcularSimulaciones()">calcular Simulaciones</button>
+
+<table mat-table *ngIf="tablaVisible">
+  <thead>
+    <tr>
+      <th>simulacion</th><th>dia</th><th>hora</th><th>nclientes</th><th>rclientes</th><th>totalIncome</th><th>totalFixedCost</th><th>totalVariableCost</th><th>totalCost</th><th>beneficio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fila of tabla">
+      <td>{{ fila.simulacion }}</td><td>{{ fila.dia }}</td><td>{{ fila.hora }}</td><td>{{ fila.nclientes }}</td><td>{{ fila.rclientes }}</td><td>{{ fila.totalIncome }}</td><td>{{ fila.totalFixedCost }}</td><td>{{ fila.totalVariableCost }}</td><td>{{ fila.totalCost }}</td><td>{{ fila.beneficio }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
+

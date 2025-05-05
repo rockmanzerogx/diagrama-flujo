@@ -1,0 +1,40 @@
+<h2>Ejemplo 2</h2>
+<div>
+  desarrollar un sistema demografico para bolivia
+</div>
+<label>CT:</label>
+<input type="number" [(ngModel)]="ct">
+
+<label>TN:</label>
+<input type="number" [(ngModel)]="tn">
+
+<label>TM:</label>
+<input type="number" [(ngModel)]="tm">
+
+<label>TMS:</label>
+<input type="number" [(ngModel)]="tms">
+
+<label>PBol:</label>
+<input type="number" [(ngModel)]="pbol">
+
+<button (click)="calcular()">Calcular</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>CT</th>
+      <th>NAC</th>
+      <th>MUE</th>
+      <th>PBol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of tabla">
+      <td>{{ row.ct }}</td>
+      <td>{{ row.nac }}</td>
+      <td>{{ row.mue }}</td>
+      <td>{{ row.pbol}}</td>
+    </tr>
+  </tbody>
+</table>
+<div>La Poblacion para el año {{tms}} es de {{pbolf}}  </div>

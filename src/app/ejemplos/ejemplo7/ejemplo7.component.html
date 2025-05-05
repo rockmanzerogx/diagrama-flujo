@@ -1,0 +1,84 @@
+<div>
+    <p>Simulación de Inventario de Azúcar</p>
+  
+    <label for="maxSimulaciones">Numero maximo de simulaciones:</label>
+    <input
+      type="number"
+      id="maxSimulaciones"
+      name="maxSimulaciones"
+      [(ngModel)]="maxSimulaciones"
+    /><br /><br />
+  
+    <label for="maxDias">Numero maximo de dias:</label>
+    <input
+      type="number"
+      id="maxDias"
+      name="maxDias"
+      [(ngModel)]="maxDias"
+    /><br /><br />
+  
+    <label for="capacidadAlmacen">Capacidad del almacen:</label>
+    <input
+      type="number"
+      id="capacidadAlmacen"
+      name="capacidadAlmacen"
+      [(ngModel)]="capacidadBodega"
+    /><br /><br />
+  
+    <label for="costoMantenimientoUnitario">Costo de mantenimiento unitario:</label>
+    <input
+      type="number"
+      id="costoMantenimientoUnitario"
+      name="costoMantenimientoUnitario"
+      [(ngModel)]="costoMantenimientoUnitario"
+    /><br /><br />
+  
+    <label for="precioVentaUnitario">Precio de venta unitario:</label>
+    <input
+      type="number"
+      id="precioVentaUnitario"
+      name="precioVentaUnitario"
+      [(ngModel)]="precioVentaUnitario"
+    /><br /><br />
+  
+    <label for="costoAdquisicionUnitario">Costo de adquisicion unitario:</label>
+    <input
+      type="number"
+      id="costoAdquisicionUnitario"
+      name="costoAdquisicionUnitario"
+      [(ngModel)]="costoAdquisicionUnitario"
+    /><br /><br />
+  
+  
+    <button (click)="simular()">Simulate</button>
+  
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  
+    <table mat-table *ngIf="tablaVisible">
+      <thead>
+        <tr>
+         <th>Día</th>
+          <th>Inventario Inicial</th>
+          <th>Demanda</th>
+          <th>Ventas</th>
+          <th>Costo Mantenimiento</th>
+          <th>Costo Adquisición</th>
+          <th>Ganancia Diaria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of tabla">
+          <td>{{ fila.dia }}</td>
+          <td>{{ fila.cantidadHuevos }}</td>
+         <td>{{ fila.inventarioInicial }}</td>
+          <td>{{ fila.demanda }}</td>
+          <td>{{ fila.ventas }}</td>
+          <td>{{ fila.costoMantenimiento }}</td>
+          <td>{{ fila.costoAdquisicion }}</td>
+          <td>{{ fila.gananciaDiaria }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

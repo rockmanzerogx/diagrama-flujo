@@ -1,0 +1,62 @@
+<p>Problema del Granjero</p>
+<div>
+    <label for="maxSimulaciones">numero maximo de simulaciones:</label>
+    <input
+      type="number"
+      id="maxSimulaciones"
+      name="maxSimulaciones"
+      [(ngModel)]="maxSimulaciones"
+    /><br /><br />
+  
+    <label for="maxDias">Numero maximo de dias:</label>
+    <input
+      type="number"
+      id="maxDias"
+      name="maxDias"
+      [(ngModel)]="maxDias"
+    /><br /><br />
+  
+    <label for="precioHuevo">Precio unitario de los Huevos:</label>
+    <input
+      type="number"
+      id="precioHuevo"
+      name="precioHuevo"
+      [(ngModel)]="precioHuevo"
+    /><br /><br />
+  
+    <label for="precioGallina">Precio unitario del pollo:</label>
+    <input
+      type="number"
+      id="precioGallina"
+      name="precioGallina"
+      [(ngModel)]="precioGallina"
+    /><br /><br />
+  
+    <button (click)="simular()">Simulate</button>
+  
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  
+    <table mat-table *ngIf="tablaVisible">
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Cantidad Huevos</th>
+          <th>Cantidad Pollos</th>
+          <th>Total Huevos</th>
+          <th>Total Pollos</th>
+          <th>Total Ganado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of tabla">
+          <td>{{ fila.dia }}</td>
+          <td>{{ fila.cantidadHuevos }}</td>
+          <td>{{ fila.cantidadPollos }}</td>
+          <td>{{ fila.totalHuevos }}</td>
+          <td>{{ fila.totalPollos }}</td>
+          <td>{{ fila.totalGanado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

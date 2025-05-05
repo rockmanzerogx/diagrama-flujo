@@ -1,4 +1,17 @@
-<main>
+<main class="main">
   <h1>Procesos Estocasticas y Simulacion</h1>
-<router-outlet />
+  <button (click)="toggleDarkMode()">Modo {{ isDarkMode ? 'Claro' : 'Oscuro' }}</button>
+@if ((asyncTabs | async) === null) {
+  Loading tabs...
+}
+
+<mat-tab-group>
+  @for (tab of asyncTabs | async; track tab) {
+    <mat-tab>
+      <ng-template mat-tab-label>{{tab.label}}</ng-template>
+      <ng-container *ngComponentOutlet="tab.component"></ng-container> 
+    </mat-tab>
+  }
+</mat-tab-group>
+  <router-outlet />
 </main>
